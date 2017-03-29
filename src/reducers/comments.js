@@ -4,9 +4,22 @@ import {
     EDIT_COMMENT,
     THUMB_UP_COMMENT,
     THUMB_DOWN_COMMENT
-} from './actions.js';
+} from '../actions';
 
-function comments(state = [], action) {
+const initialState = [
+    {
+        id: '1',
+        text: 'przykładowy komentarz nr1',
+        votes: 0
+    },
+    {
+        id: '2',
+        text: 'inny przykładowy komentarz nr2',
+        votes: 0
+    }
+]
+
+function comments(state = initialState, action) {
     switch (action.type) {
         case ADD_COMMENT:
             return [{
@@ -19,21 +32,21 @@ function comments(state = [], action) {
         case EDIT_COMMENT:
             return state.map(comment => {
                 if (comment.id === action.id) {
-                    return { text: action.text, id: comment.id, votes: comment.votes }
+                    return {...comment, text: action.text}
                 }
                 return comment;
             })
         case THUMB_UP_COMMENT:
             return state.map(comment => {
                 if (comment.id === action.id) {
-                    return { text: comment.text, id: comment.id, votes: comment.votes + 1 }
+                    return { ...comment, votes: comment.votes + 1 }
                 }
                 return comment;
             });
         case THUMB_DOWN_COMMENT:
             return state.map(comment => {
                 if (comment.id === action.id) {
-                    return { text: comment.text, id: comment.id, votes: comment.votes - 1 }
+                    return { ...comment, votes: comment.votes - 1 }
                 }
                 return comment;
             });

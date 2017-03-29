@@ -45,13 +45,13 @@ function thumbDownComment(id) {
 
 export {
     ADD_COMMENT,
-    addComment,
     REMOVE_COMMENT,
-    removeComment,
     EDIT_COMMENT,
-    editComment,
     THUMB_UP_COMMENT,
-    thumbUpComment,
     THUMB_DOWN_COMMENT,
+    addComment,
+    removeComment,
+    editComment,
+    thumbUpComment,
     thumbDownComment
 };

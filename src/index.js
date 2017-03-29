@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { combineReducers } from 'redux';
-import App from './App';
-import './index.css';
-import { addComment } from './actions.js';
-import comments from './comments.js';
-import users from './users.js';
+import { createStore, combineReducers } from 'redux';
+import App from './components/App';
+import './css/index.css';
+import comments from './reducers/comments.js';
+import users from './reducers/users.js';
 
 const reducer = combineReducers({
   comments,
   users
 });
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -22,6 +22,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-store.dispatch(addComment('pierwszy komentarz'));
-store.dispatch(addComment('drugi komentarz'));

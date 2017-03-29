@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import AddComment from './AddComment';
-import {addComment} from './actions'
+import AddComment from '../components/AddComment';
+import {addComment} from '../actions'
 
 const mapDispatchToProps = dispatch => ({
   addComment: (text) => dispatch(addComment(text))

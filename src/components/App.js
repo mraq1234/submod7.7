@@ -1,8 +1,9 @@
 import React, {
   Component
 } from 'react';
-import CommentList from './CommentsListContainer';
-import AddComment from './AddCommentContainer';
+import CommentList from '../containers/CommentsListContainer';
+import AddComment from '../containers/AddCommentContainer';
+
 
 class App extends Component {
   render() {
